@@ -22,6 +22,7 @@
   <ProjectSessionItem path="ble_app_uart_pca10056_s113"/>
   <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113"/>
   <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;Application"/>
+  <SourceCodeControlLogin password="F9BB6682F5D56822" user="Julian Botello &lt;jlnbotello@gmail.com>"/>
  </Project>
  <Register1>
   <RegisterWindow visibleNodes="CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/msp;CPU/psp;CPU/cfbp;CPU/internal;CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr" binaryNodes="" asciiNodes="" openNodes="CPU;CPU - Current Context;CPU - Current Context/apsr" name="ble_app_uart_pca10056_s113" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -54,12 +55,12 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditRight" x="3" y="56" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="a_template.h" selected="0" top="42" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditRight" x="0" y="56" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="a_template.h" selected="0" top="42" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditRight" x="0" y="11" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="a_template.c" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditRight" x="2" y="60" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="application_protocol.h" selected="0" top="42" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditRight" x="0" y="60" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="application_protocol.h" selected="0" top="42" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditRight" x="0" y="22" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/ble_peripheral/app/pca10056/s113/ses/application_protocol.h" useBinaryEdit="0" left="0" path="application_protocol.c" selected="0" top="3" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="17" y="145" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="transport_protocol.c" selected="1" top="123" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="66" y="70" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="transport_protocol.h" selected="0" top="50" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="145" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="transport_protocol.c" selected="1" top="123" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="70" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="transport_protocol.h" selected="0" top="50" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="126" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="main.c" selected="0" top="102" codecName="Default"/>
  </Files>
  <ARMCrossStudioWindow activeProject="ble_app_uart_pca10056_s113" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/jlnbo/Documents/ESE/PF/_Repos/kardioUAPI_sw/nRF5SDK/examples/ble_peripheral/ble_app_uart2/pca10056/s113/ses" debugSearchPath="" autoConnectCapabilities="3711"/>

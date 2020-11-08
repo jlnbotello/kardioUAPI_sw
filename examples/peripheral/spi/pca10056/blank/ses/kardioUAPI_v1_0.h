@@ -1,6 +1,6 @@
 /* kardioUAPI v1.0.0 Pin Mapping
 +---------------------------+--------------+------------+----------------+
-| PERIPHERAL PINS (ADAPTED) | BL654 PIN NÂº | SHEET PIN  | BL654 PIN NAME |
+| PERIPHERAL PINS (ADAPTED) | BL654 PIN Nº | SHEET PIN  | BL654 PIN NAME |
 +---------------------------+--------------+------------+----------------+
 | AFE_A_DRDY_INT            | 56           | GPIO_A1    | SIO_45         |
 +---------------------------+--------------+------------+----------------+
@@ -135,9 +135,9 @@
 
 #include "nrf_gpio.h"
 
-#define SIO(n)							NRF_GPIO_PIN_MAP((n<=31)?0:1,(n<=31)?n:(n-32))
+#define SIO(n)				NRF_GPIO_PIN_MAP((n<=31)?0:1,(n<=31)?n:(n-32))
 
-#define KARDIOUAPI_AFE_A_DRDY_INT		SIO(45)
+#define KARDIOUAPI_AFE_A_DRDY_INT	SIO(45)
 #define KARDIOUAPI_AFE_A_PWD_RST        SIO(37)
 #define KARDIOUAPI_AFE_A_SPI_CS         SIO(43)
 #define KARDIOUAPI_AFE_AB_START         SIO(40)
@@ -179,7 +179,7 @@
 #define KARDIOUAPI_SD_CARD_SPI_CS       SIO(33)
 #define KARDIOUAPI_SD_CARD_SPI_MISO     SIO(16)
 #define KARDIOUAPI_SD_CARD_SPI_MOSI     SIO(25)
-#define KARDIOUAPI_VIBRATOR_ENABLE		SIO(47)
+#define KARDIOUAPI_VIBRATOR_ENABLE	SIO(47)
 
 
 
