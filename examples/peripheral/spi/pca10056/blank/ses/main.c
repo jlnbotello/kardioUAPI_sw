@@ -64,12 +64,20 @@ int main(void){
  
   ret_code = ADS1292R_Init();
 
-  if(ADS1292R_RETCODE_SUCESS == ret_code)
-      nrf_gpio_pin_set(KARDIOUAPI_LED1_G);
-    else
-      nrf_gpio_pin_set(KARDIOUAPI_LED1_R);
+  ADS1292R_HW_Start();
 
+  if (ADS1292R_RETCODE_SUCESS == ret_code) {
+    nrf_gpio_pin_set(KARDIOUAPI_LED1_G);
+    nrf_delay_ms(1000);
+    nrf_gpio_pin_clear(KARDIOUAPI_LED1_G);
+  } else {
+    nrf_gpio_pin_set(KARDIOUAPI_LED1_R);
+  }
+  ADS1292R_SpiPacket_t pkt;
   while(1){
+    if(ADS1292R_NewSamples()){
+      ADS1292R_ReadSamples(&pkt);
+    }
     nrf_gpio_pin_toggle(KARDIOUAPI_LED1_B);
     nrf_delay_ms(10);
     nrf_gpio_pin_toggle(KARDIOUAPI_LED1_B);

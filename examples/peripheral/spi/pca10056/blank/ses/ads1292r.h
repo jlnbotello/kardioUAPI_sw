@@ -41,6 +41,12 @@
 
 
 /*==================[TYPEDEF]================================================*/
+
+typedef enum {
+  ADS1292R_PKT_EMPTY,
+  ADS1292R_PKT_FULL
+} ADS1292R_RxStatus_t;
+
 typedef enum {
   ADS1292R_RATE_125HZ,
   ADS1292R_RATE_250HZ,
@@ -68,6 +74,15 @@ typedef enum {
 
 typedef uint8_t ADS1292R_RetCode_t;
 
+typedef union {
+  struct {
+    uint8_t status[3];
+    uint8_t channel_1[3];
+    uint8_t channel_2[3];
+  } by_field;
+  uint8_t by_index[9];
+} __attribute__((packed)) ADS1292R_SpiPacket_t;
+
 
 extern volatile bool spi_is_busy;
 
@@ -84,6 +99,9 @@ extern volatile bool spi_is_busy;
 ADS1292R_RetCode_t ADS1292R_Init();
 void ADS1292R_HW_Reset();
 void ADS1292R_HW_Stop();
+void ADS1292R_HW_Start();
+bool ADS1292R_NewSamples();
+void ADS1292R_ReadSamples(ADS1292R_SpiPacket_t * pkt);
 
 
 

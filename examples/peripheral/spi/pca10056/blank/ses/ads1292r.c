@@ -56,7 +56,8 @@
 #define ADS1292R_GAIN_MASK(gain)      ((uint8_t)(0x70 & (gain << 4)))
 #define ADS1292R_RATE_MASK(rate)      ((uint8_t)(0x07 & rate))
 
-#define ADS1292R_SPI_BUFFER_SIZE      10
+#define ADS1292R_DATA_PACKET_SIZE      9
+#define ADS1292R_SPI_BUFFERS_SIZE      10
 #define ADS1292R_DUMMY_BYTE           0x00
 
 /*==================[TYPEDEF]================================================*/
@@ -79,25 +80,22 @@ typedef union {
   uint8_t by_index[ADS1292R_NOF_REGS];
 } __attribute__((packed)) ADS1292R_Regs_t;
 
-typedef union {
-  struct {
-    uint8_t status[3];
-    uint8_t channel_1[3];
-    uint8_t channel_2[3];
-  } by_field;
-  uint8_t by_index[9];
-} __attribute__((packed)) ADS1292R_SpiPacket_t;
+
 
     /*==================[INTERNAL DATA DEFINITION]===============================*/
     int a_var; /**< Inline comment for a_var */
-static ADS1292R_Regs_t device_reg = {1};
+static ADS1292R_Regs_t device_reg = {0};
 static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(0); /**< SPI instance 0. */
-static uint8_t m_tx_buf[ADS1292R_SPI_BUFFER_SIZE];
-static uint8_t m_rx_buf[ADS1292R_SPI_BUFFER_SIZE];
+static uint8_t m_tx_buf[ADS1292R_SPI_BUFFERS_SIZE];
+static uint8_t m_rx_buf[ADS1292R_SPI_BUFFERS_SIZE];
+static ADS1292R_SpiPacket_t packet;
+static uint8_t packet_status = ADS1292R_PKT_EMPTY;
 //volatile bool spi_is_busy = false; /**< Flag used to indicate that SPI instance completed the transfer. */
 
 /*==================[INTERNAL FUNCTIONS DECLARATION]=========================*/
 void on_data_rdy(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action);
+static void get_data(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action);
+
 /*==================[INTERNAL FUNCTIONS DEFINITION]==========================*/
 void spi_event_handler(nrf_drv_spi_evt_t const * p_event, void * p_context) {
     //spi_is_busy = false;
@@ -132,8 +130,8 @@ static void init_gpio() {
   err_code = nrfx_gpiote_init();
   nrfx_gpiote_in_config_t in_config = NRFX_GPIOTE_CONFIG_IN_SENSE_HITOLO(true);
   in_config.pull = NRF_GPIO_PIN_PULLUP;
-  err_code = nrfx_gpiote_in_init(ADS1292R_PIN_DRDY, &in_config, on_data_rdy);
-  //APP_ERROR_CHECK(err_code);
+  err_code = nrfx_gpiote_in_init(ADS1292R_PIN_DRDY, &in_config, get_data);
+  APP_ERROR_CHECK(err_code);
   nrfx_gpiote_in_event_enable(ADS1292R_PIN_DRDY, true);
 }
 
@@ -147,11 +145,24 @@ static void set_low(uint8_t pin) {
 
 static void spi_transfer(uint8_t *data_src, uint8_t length) {
   
-  if (length <= ADS1292R_SPI_BUFFER_SIZE) {
+  if (length <= ADS1292R_SPI_BUFFERS_SIZE) {
     //spi_is_busy = true;
     memset(m_rx_buf, 0, length);
-    memcpy(m_tx_buf, data_src, length);
+    if(data_src == NULL)
+      memset(m_tx_buf, ADS1292R_DUMMY_BYTE, length);
+    else
+      memcpy(m_tx_buf, data_src, length);
     nrf_drv_spi_transfer(&spi, m_tx_buf, length, m_rx_buf, length);
+  }
+}
+
+static void get_data(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action) {
+  if (pin == KARDIOUAPI_AFE_A_DRDY_INT && packet_status == ADS1292R_PKT_EMPTY) {
+    set_low(ADS1292R_PIN_CS);
+    nrf_delay_ms(2);
+    nrf_drv_spi_transfer(&spi, m_tx_buf, ADS1292R_DATA_PACKET_SIZE, packet.by_index, ADS1292R_DATA_PACKET_SIZE);
+    set_high(ADS1292R_PIN_CS);
+    packet_status = ADS1292R_PKT_FULL;
   }
 }
 
@@ -191,6 +202,7 @@ static void read_n_regs(uint8_t address, uint8_t *data, uint8_t n) {
 }
 
 void on_data_rdy(nrfx_gpiote_pin_t pin, nrf_gpiote_polarity_t action) {
+  //nrf_gpio_pin_toggle(KARDIOUAPI_LED1_G); 
   
 }
 
@@ -208,9 +220,9 @@ ADS1292R_RetCode_t ADS1292R_Init() {
   set_low(ADS1292R_PIN_CS);
   spi_transfer_byte(ADS1292R_CMD_SDATAC); //Stop Read Data Continuously mode
   nrf_delay_ms(1);
-  spi_transfer_byte(ADS1292R_CMD_STOP); //Stop Read Data Continuously mode
+  spi_transfer_byte(ADS1292R_CMD_STOP); //Stop
    nrf_delay_ms(1);
-  write_reg(ADS1292R_REG_CONFIG2, 0xA0);
+  //write_reg(ADS1292R_REG_CONFIG2, 0xA0);
    nrf_delay_ms(1);
   
   uint8_t rx;
@@ -231,6 +243,11 @@ ADS1292R_RetCode_t ADS1292R_Init() {
   /* Check device availability */
   if (device_reg.by_field.id == ADS1292R_RO_ID)
     ret_val = ADS1292R_RETCODE_SUCESS;
+
+  /* Reenable Read Data Continuously mode */
+  set_low(ADS1292R_PIN_CS);
+  spi_transfer_byte(ADS1292R_CMD_RDATAC); 
+  set_high(ADS1292R_PIN_CS);
 
   return ret_val;
 }
@@ -272,5 +289,21 @@ void ADS1292R_SetGain(ADS1292R_Channel_t ch, ADS1292R_Gain_t gain) {
 void ADS1292R_SetRate(ADS1292R_Rate_t rate) {
   write_reg(ADS1292R_REG_CONFIG1, device_reg.by_field.config1 | ADS1292R_RATE_MASK(rate));
 }
+
+bool ADS1292R_NewSamples() {
+  bool ret_val = false;
+  if(packet_status == ADS1292R_PKT_FULL)
+    ret_val = true;
+  return ret_val;
+}
+
+void ADS1292R_ReadSamples(ADS1292R_SpiPacket_t * pkt) {
+  memcpy(pkt->by_index,packet.by_index,ADS1292R_DATA_PACKET_SIZE);
+  packet_status = ADS1292R_PKT_EMPTY;
+}
+
+
+
+
 
 /*==================[END OF FILE]============================================*/

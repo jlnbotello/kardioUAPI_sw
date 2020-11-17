@@ -83,6 +83,8 @@
   #include STRINGIFY(CUSTOM_BOARD_INC.h)
 #elif defined(BOARD_CUSTOM)
   #include "custom_board.h"
+  #elif defined(BOARD_BL654DVK)
+#include "bl654dvk.h"
 #else
 #error "Board is not defined"
 
