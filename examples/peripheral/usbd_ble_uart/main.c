@@ -253,12 +253,13 @@ static void nus_data_handler(ble_nus_evt_t * p_evt)
 
         // Add endline characters
         uint16_t length = p_evt->params.rx_data.length;
+        /*
         if (length + sizeof(ENDLINE_STRING) < BLE_NUS_MAX_DATA_LEN)
         {
             memcpy(m_nus_data_array + length, ENDLINE_STRING, sizeof(ENDLINE_STRING));
             length += sizeof(ENDLINE_STRING);
         }
-
+        */
         // Send data through CDC ACM
         ret_code_t ret = app_usbd_cdc_acm_write(&m_app_cdc_acm,
                                                 m_nus_data_array,
@@ -708,13 +709,15 @@ static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
 
                         do
                         {
-                            uint16_t length = (uint16_t)index;
+                            uint16_t length = (uint16_t)index-1;
+                            /*
                             if (length + sizeof(ENDLINE_STRING) < BLE_NUS_MAX_DATA_LEN)
                             {
                                 memcpy(m_cdc_data_array + length, ENDLINE_STRING, sizeof(ENDLINE_STRING));
                                 length += sizeof(ENDLINE_STRING);
                             }
-
+                            */
+                                  
                             ret = ble_nus_data_send(&m_nus,
                                                     (uint8_t *) m_cdc_data_array,
                                                     &length,
@@ -745,7 +748,7 @@ static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
 
                 /*Get amount of data transferred*/
                 size_t size = app_usbd_cdc_acm_rx_size(p_cdc_acm);
-                NRF_LOG_DEBUG("RX: size: %lu char: %c", size, m_cdc_data_array[index - 1]);
+                NRF_LOG_DEBUG("RX: size: %lu char: %c", size, m_cdc_data_array[index]);
 
                 /* Fetch data until internal buffer is empty */
                 ret = app_usbd_cdc_acm_read(&m_app_cdc_acm,

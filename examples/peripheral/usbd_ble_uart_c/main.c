@@ -93,6 +93,19 @@
 #include "app_usbd_cdc_acm.h"
 #include "app_usbd_serial_num.h"
 
+/*
+#include "sensorsim.h"
+
+sensorsim_cfg_t sensor_cfg = {
+.min = 0,
+.max = 1000,
+.incr = 20,
+.start_at_max=false
+};
+
+sensorsim_state_t sensor_st;
+*/
+
 #define LED_BLE_NUS_CONN (BSP_BOARD_LED_0)
 #define LED_BLE_NUS_RX   (BSP_BOARD_LED_1)
 #define LED_CDC_ACM_CONN (BSP_BOARD_LED_2)
@@ -327,16 +340,25 @@ static void ble_nus_chars_received_uart_print(uint8_t * p_data, uint16_t data_le
 
     // Add endline characters
     uint16_t length = data_len;
+    
+    /*
     if (length + sizeof(ENDLINE_STRING) < BLE_NUS_MAX_DATA_LEN)
     {
         memcpy(m_nus_data_array + length, ENDLINE_STRING, sizeof(ENDLINE_STRING));
         length += sizeof(ENDLINE_STRING);
     }
+    */
 
+    /*
+    uint32_t sensor_val = sensorsim_measure(&sensor_st,&sensor_cfg);
+    sensorsim_increment(&sensor_st,&sensor_cfg);
+    ret_code_t ret = app_usbd_cdc_acm_write(&m_app_cdc_acm, &sensor_val, 4);
+    */
     // Send data through CDC ACM
-    ret_code_t ret = app_usbd_cdc_acm_write(&m_app_cdc_acm,
-                                            m_nus_data_array,
-                                            length);
+    ret_code_t ret = app_usbd_cdc_acm_write(&m_app_cdc_acm, m_nus_data_array, length);
+    
+
+
     if(ret != NRF_SUCCESS)
     {
         NRF_LOG_INFO("CDC ACM unavailable, data received: %s", m_nus_data_array);
@@ -878,15 +900,18 @@ static void cdc_acm_user_ev_handler(app_usbd_class_inst_t const * p_inst,
 
                         do
                         {
-                            uint16_t length = (uint16_t)index;
+                            uint16_t length = (uint16_t)index-1;
+                 
+                            /*
                             if (length + sizeof(ENDLINE_STRING) < BLE_NUS_MAX_DATA_LEN)
                             {
                                 memcpy(m_cdc_data_array + length, ENDLINE_STRING, sizeof(ENDLINE_STRING));
                                 length += sizeof(ENDLINE_STRING);
                             }
+                            */
 
                             ret = ble_nus_c_string_send(&m_ble_nus_c, (uint8_t *) m_cdc_data_array, length);
-
+                           
                             if (ret == NRF_ERROR_NOT_FOUND)
                             {
                                 NRF_LOG_INFO("BLE NUS unavailable, data received: %s", m_cdc_data_array);
@@ -1007,6 +1032,8 @@ static void idle_state_handle(void)
 /** @brief Application main function. */
 int main(void)
 {
+    
+    //sensorsim_init(&sensor_st,&sensor_cfg);
     ret_code_t ret;
     static const app_usbd_config_t usbd_config = {
         .ev_state_proc = usbd_user_ev_handler

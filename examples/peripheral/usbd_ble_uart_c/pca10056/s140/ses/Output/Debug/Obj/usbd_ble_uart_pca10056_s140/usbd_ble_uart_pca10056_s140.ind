@@ -37,6 +37,7 @@
 "Output/Debug/Obj/usbd_ble_uart_pca10056_s140/nrf_strerror.o"
 "Output/Debug/Obj/usbd_ble_uart_pca10056_s140/retarget.o"
 "Output/Debug/Obj/usbd_ble_uart_pca10056_s140/nrf_queue.o"
+"Output/Debug/Obj/usbd_ble_uart_pca10056_s140/sensorsim.o"
 "Output/Debug/Obj/usbd_ble_uart_pca10056_s140/ses_startup_nrf52840.o"
 "Output/Debug/Obj/usbd_ble_uart_pca10056_s140/ses_startup_nrf_common.o"
 "Output/Debug/Obj/usbd_ble_uart_pca10056_s140/system_nrf52840.o"

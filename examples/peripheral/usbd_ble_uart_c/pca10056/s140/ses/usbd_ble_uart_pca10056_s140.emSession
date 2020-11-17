@@ -3,7 +3,7 @@
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
   <BreakpointListItem trigger="" line="69" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../../../../../../components/ble/ble_services/ble_nus_c/ble_nus_c.h" useHWbreakpoint="false"/>
-  <BreakpointListItem trigger="" line="937" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="../../../main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="943" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="../../../main.c" useHWbreakpoint="false"/>
   <BreakpointListItem trigger="" line="6456" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../config/sdk_config.h" useHWbreakpoint="false"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -25,12 +25,12 @@
  <Project>
   <ProjectSessionItem path="usbd_ble_uart_pca10056_s140"/>
   <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140"/>
-  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_Libraries"/>
-  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_Drivers"/>
-  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_BLE_Services"/>
-  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_BLE"/>
-  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;Board Definition"/>
   <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;Application"/>
+  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;Board Definition"/>
+  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_BLE"/>
+  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_BLE_Services"/>
+  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_Drivers"/>
+  <ProjectSessionItem path="usbd_ble_uart_pca10056_s140;usbd_ble_uart_pca10056_s140;nRF_Libraries"/>
   <SourceCodeControlLogin password="F9BB6682F5D56822" user="Julian Botello &lt;jlnbotello@gmail.com>"/>
  </Project>
  <Register1>
@@ -64,7 +64,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="8" y="97" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="84" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="883" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../main.c" selected="1" top="869" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="44" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/src/nrfx_usbd.c" selected="0" top="26" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" openedFrom="C:/Workspace/nRF5SDK16/modules/nrfx/drivers/src/nrfx_usbd.c" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/include/nrfx_usbd.h" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="108" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/usbd/app_usbd_core.c" selected="0" top="81" codecName="Default"/>
@@ -78,11 +78,11 @@
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="970" useTextEdit="1" openedFrom="C:/Workspace/nRF5SDK16/examples/peripheral/usbd_ble_uart_c/main.c" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/usbd/class/cdc/acm/app_usbd_cdc_acm.c" selected="0" top="967" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="42" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/drivers/src/nrfx_power.c" selected="0" top="38" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="39" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../integration/nrfx/legacy/nrf_drv_power.c" selected="0" top="33" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="39" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/boards/boards.c" selected="0" top="36" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="198" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/components/boards/boards.c" useBinaryEdit="0" left="0" path="../../../../../../components/boards/boards.h" selected="0" top="192" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="39" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/boards/boards.c" selected="0" top="21" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="72" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/components/boards/boards.c" useBinaryEdit="0" left="0" path="../../../../../../components/boards/boards.h" selected="0" top="60" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="107" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/util/app_error_weak.c" selected="0" top="87" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="74" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/util/app_error_handler_gcc.c" selected="0" top="64" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="29" y="58" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/peripheral/usbd_ble_uart_c/main.c" useBinaryEdit="0" left="0" path="../../../../../../components/boards/pca10059.h" selected="0" top="47" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="58" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/peripheral/usbd_ble_uart_c/main.c" useBinaryEdit="0" left="0" path="../../../../../../components/boards/pca10059.h" selected="0" top="47" codecName="Default"/>
  </Files>
- <ARMCrossStudioWindow activeProject="usbd_ble_uart_pca10056_s140" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3711"/>
+ <ARMCrossStudioWindow activeProject="usbd_ble_uart_pca10056_s140" fileDialogDefaultFilter="*.c;*.cpp;*.cxx;*.cc;*.h;*.hpp;*.hxx" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Repos/kardioUAPI_sw/components/libraries/sensorsim" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>
