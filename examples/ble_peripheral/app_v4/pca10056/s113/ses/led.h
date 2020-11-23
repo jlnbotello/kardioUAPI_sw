@@ -1,0 +1,22 @@
+#ifndef LED_H
+#define LED_H
+#include "stdint.h"
+
+
+typedef enum {L1, L2, L3, L4} LedId_t;
+    
+#define LED_R   L1
+#define LED_G   L2
+#define LED_B   L3
+
+void Led_Init();
+
+void Led_On(LedId_t led_idx);
+
+void Led_Off(LedId_t led_idx);
+
+void Led_Toggle(LedId_t led_idx);
+
+void Led_AllOff();
+
+#endif //LED_H
