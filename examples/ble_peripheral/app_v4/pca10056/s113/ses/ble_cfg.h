@@ -29,7 +29,7 @@
 /*==================[EXTERNAL FUNCTIONS DECLARATION]=========================*/
 /**@brief Initialize all ble dependencies
 */
-void BleCfg_Init(TPCfg_RxEvent_t *p_rx_event);
+void BleCfg_Init(TpCfg_RxEvent_t *p_rx_event);
 
 /**@brief Function for starting advertising.
  */

@@ -153,7 +153,7 @@ void LedPort_Init(AP_Instance_t * ap_instance){
 /**@brief For superloop implementation. Flags pulling
 *
 */
-void LedPort_Run(){
+void LedPort_RxHandler(){
         rx_handler();
 }
     

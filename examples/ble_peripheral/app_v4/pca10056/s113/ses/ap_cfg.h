@@ -17,8 +17,8 @@
 /*==================[TYPEDEF]================================================*/
 
 /*==================[EXTERNAL FUNCTIONS DECLARATION]=========================*/
-void APCfg_Init(TP_Instance_t *p_tpi_);
-AP_Instance_t * APCfg_GetInstance();
+void ApCfg_Init(TP_Instance_t *p_tpi_);
+AP_Instance_t * ApCfg_GetInstance();
 
 /*==================[END OF FILE]============================================*/
 #endif /* AP_CFG_H */

@@ -1,26 +1,20 @@
 /**
- * @file afe_port.h
- * @brief 
+ * @file afe_cfg.h
+ * @brief AFE configuration interface
  *
- * @date 	22/11/20
+ * @date 	23/11/20
  * @author 	Julián Botello <jlnbotello@gmail.com>
  */
 
-#ifndef AFE_PORT_H
-#define AFE_PORT_H
+#ifndef AFE_CFG_H
+#define AFE_CFG_H
 /*==================[INCLUSIONS]=============================================*/
-#include "application_protocol.h"
-#include "ads1292r.h"
 
 /*==================[MACROS AND DEFINITIONS]=================================*/
 
 /*==================[TYPEDEF]================================================*/
-typedef struct {    
-    void (*afe_data_handler)(void);
-} AFEPort_AFEEvent_t;
 
 /*==================[EXTERNAL FUNCTIONS DECLARATION]=========================*/
-void AfePort_Init(AP_Instance_t * ap_instance);
-void AFEPort_AFEDataHandler();
+void AfeCfg_Init();
 /*==================[END OF FILE]============================================*/
-#endif /* AFE_PORT_H */
+#endif /* AFE_CFG_H */

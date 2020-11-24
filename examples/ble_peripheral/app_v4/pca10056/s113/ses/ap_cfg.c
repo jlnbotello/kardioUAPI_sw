@@ -44,13 +44,13 @@ static bool tp_is_there_space(uint8_t space) {
 }
 
 /*==================[EXTERNAL FUNCTIONS DEFINITION]==========================*/
-void APCfg_Init(TP_Instance_t *p_tpi_) {
+void ApCfg_Init(TP_Instance_t *p_tpi_) {
     ASSERT(p_tpi_ != NULL);
     p_tpi = p_tpi_;
     AP_Init(&api);
 }
 
-AP_Instance_t * APCfg_GetInstance(){
+AP_Instance_t * ApCfg_GetInstance(){
     return &api;
 }
 /*==================[END OF FILE]============================================*/

@@ -110,9 +110,11 @@
         <file file_name="tp_cfg.c" />
         <file file_name="tp_cfg.h" />
         <file file_name="ap_cfg.c" />
-        <file file_name="ap_cfg.h" />
         <file file_name="pwr_mgmt_cfg.c" />
         <file file_name="pwr_mgmt_cfg.h" />
+        <file file_name="afe_cfg.h" />
+        <file file_name="afe_cfg.c" />
+        <file file_name="ap_cfg.h" />
       </folder>
       <folder Name="Comm_Protocol">
         <file file_name="transport_protocol.h" />

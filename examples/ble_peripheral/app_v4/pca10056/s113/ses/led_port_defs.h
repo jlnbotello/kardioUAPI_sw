@@ -12,10 +12,10 @@
 
 /*==================[MACROS AND DEFINITIONS]=================================*/
 #define	LED_PORT                        ((uint8_t)'L')
-#define LED_PORT_ID_POS				0
+#define LED_PORT_ID_POS			0
 #define LED_PORT_PAYLOAD_POS		1
 #define LED_PORT_MAX_TX_LEN 		5 	//Bigger tx packet
-#define LED_PORT_MAX_RX_LEN			5	//Bigger rx packet
+#define LED_PORT_MAX_RX_LEN		5	//Bigger rx packet
 
 /*==================[ACTION PACKET]==========================================*/
 /* Request status */

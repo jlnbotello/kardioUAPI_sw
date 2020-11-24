@@ -11,10 +11,10 @@
 
 /*==================[MACROS AND DEFINITIONS]=================================*/
 
+/*==================[INTERNAL FUNCTIONS DECLARATION]=========================*/
+
 /*==================[INTERNAL DATA DEFINITION]===============================*/
 int a_var; /**< Inline comment for a_var */
-
-/*==================[INTERNAL FUNCTIONS DECLARATION]=========================*/
 
 /*==================[INTERNAL FUNCTIONS DEFINITION]==========================*/
 

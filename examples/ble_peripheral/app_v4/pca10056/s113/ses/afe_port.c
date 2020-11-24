@@ -9,8 +9,7 @@
 /*==================[INCLUSIONS]=============================================*/
  #include "afe_port.h"
  #include "afe_port_defs.h"
- //#include "ads1292r.h"
- #include "error_handling.h"
+  #include "error_handling.h"
 
 /*==================[MACROS AND DEFINITIONS]=================================*/
 
@@ -35,7 +34,14 @@ static AP_TransferStatus_t tx_status;
 
 static AP_Instance_t * api;
 
-static afe_port_data_t samples;
+static afe_port_32bit_data_t samples32 = {
+    .id = AFE_PORT_DATA_PKT_ID
+};
+
+static afe_port_16bit_data_t samples16 = {
+    .id = AFE_PORT_DATA_PKT_ID
+};
+
 static afe_port_cfg_t  config;
 
 
@@ -68,18 +74,18 @@ static void rx_handler() {
     if (rx_status == AP_BUSY) {
         switch (rx_buffer[AFE_PORT_ID_POS]) {
         case AFE_PORT_CMD_START_ID:
-            if (rx_data_len == AFE_PORT_CMD_LEN) {
-
-            } else {
+            //if (rx_data_len == AFE_PORT_CMD_LEN) {
+                ADS1292R_HW_Start();
+            //} else {
                 // Wrong length!
-            }
+            //}
             break;
         case AFE_PORT_CMD_STOP_ID:
-            if (rx_data_len == AFE_PORT_CMD_LEN) {
-
-            } else {
+            //if (rx_data_len == AFE_PORT_CMD_LEN) {
+                ADS1292R_HW_Stop();
+            //} else {
                 // Wrong length!
-            }
+            //}
             break;
 
         default:
@@ -91,5 +97,26 @@ static void rx_handler() {
 }
 
 /*==================[EXTERNAL FUNCTIONS DEFINITION]==========================*/
+void AfePort_Init(AP_Instance_t * ap_instance){
+    api = ap_instance;
+    rx_status = AP_FREE;
+    tx_status = AP_FREE;
+    ASSERT(true == AP_AddCallbacks(api, afe_port_cbs));
+}
 
+#define CONV_INT24_TO_INT32(x)     ((int32_t)(x[2]<<16)+(x[1]<<8)+(x[0]))
+#define CONV_INT24_TO_INT16(x)     ((int16_t)(x[1]<<8)+(x[0]))
+
+void AFEPort_AFEDataHandler(){
+    ADS1292R_SpiPacket_t const * const p_afe_pkt = ADS1292R_GetPacketHandle();
+    
+    
+    samples16.sample_ch1 = CONV_INT24_TO_INT16(p_afe_pkt->by_field.channel_1);
+    samples16.sample_ch2 = CONV_INT24_TO_INT16(p_afe_pkt->by_field.channel_2);
+    ADS1292R_ReleasePacket();
+    send((uint8_t *)&samples16, 5);
+    
+    
+    
+}
 /*==================[END OF FILE]============================================*/

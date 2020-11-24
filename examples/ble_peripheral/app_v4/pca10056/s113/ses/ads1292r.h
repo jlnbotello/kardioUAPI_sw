@@ -83,8 +83,9 @@ typedef union {
   uint8_t by_index[9];
 } __attribute__((packed)) ADS1292R_SpiPacket_t;
 
+typedef void (*ADS1292R_NewDataCallback_t)(void);
 
-extern volatile bool spi_is_busy;
+//extern volatile bool spi_is_busy;
 
 /*==================[EXTERNAL FUNCTIONS DEFINITION]==========================*/
 /**
@@ -96,12 +97,14 @@ extern volatile bool spi_is_busy;
  *
  *  @retval       ret           Meaning of ret
  */
-ADS1292R_RetCode_t ADS1292R_Init();
+ADS1292R_RetCode_t ADS1292R_Init(ADS1292R_NewDataCallback_t cb);
 void ADS1292R_HW_Reset();
 void ADS1292R_HW_Stop();
 void ADS1292R_HW_Start();
 bool ADS1292R_NewSamples();
-void ADS1292R_ReadSamples(ADS1292R_SpiPacket_t * pkt);
+void ADS1292R_CopySamples(ADS1292R_SpiPacket_t * pkt);
+ADS1292R_SpiPacket_t const * const ADS1292R_GetPacketHandle();
+void ADS1292R_ReleasePacket();
 
 
 

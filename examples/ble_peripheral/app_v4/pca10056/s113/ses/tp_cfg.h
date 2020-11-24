@@ -12,15 +12,15 @@
 typedef struct {    
     TP_Instance_t * tpi;  
     void (*rx_handler)(TP_Instance_t *tpi);    
-} TPCfg_RxEvent_t;
+} TpCfg_RxEvent_t;
 /*==================[EXTERNAL FUNCTIONS DECLARATION]=========================*/
-void TPCfg_Init(ble_nus_t *p_nus_, uint16_t *p_conn_handle_, AP_Instance_t * p_api_);
+void TpCfg_Init(ble_nus_t *p_nus_, uint16_t *p_conn_handle_, AP_Instance_t * p_api_);
 
 void TpCfg_RxSchedHandler(void *p_event, uint16_t event_size);
 
-TPCfg_RxEvent_t * TPCfg_GetRxEventHandle();
+TpCfg_RxEvent_t * TpCfg_GetRxEventHandle();
 
-TP_Instance_t * TPCfg_GetInstance();
+TP_Instance_t * TpCfg_GetInstance();
 
 /*==================[END OF FILE]============================================*/
 #endif /* A_TEMPLATE_H */

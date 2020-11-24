@@ -5,7 +5,7 @@
 #include "app_scheduler.h"
 
 /*==================[MACROS AND DEFINITIONS]=================================*/
-#define SCHED_MAX_EVENT_DATA_SIZE       sizeof(TPCfg_RxEvent_t)/**< Maximum size of scheduler events. */
+#define SCHED_MAX_EVENT_DATA_SIZE       sizeof(TpCfg_RxEvent_t)/**< Maximum size of scheduler events. */
 #define SCHED_QUEUE_SIZE                2                    /**< Maximum number of events in the scheduler queue. */
 
 /*==================[TYPEDEF]================================================*/

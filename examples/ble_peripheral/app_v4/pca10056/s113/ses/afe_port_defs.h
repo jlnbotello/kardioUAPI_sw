@@ -17,7 +17,7 @@
 #define AFE_PORT_PAYLOAD_POS		1
 
 /*==================[ACTION PACKET]==========================================*/
-/* Request status */
+/* Commands */
 #define AFE_PORT_CMD_LEN                1
 #define AFE_PORT_CMD_START_ID		((uint8_t)'O')
 #define AFE_PORT_CMD_STOP_ID		((uint8_t)'X')
@@ -31,17 +31,25 @@ typedef struct __attribute__((packed)) {
 	uint8_t channel_2_gain;
 }afe_port_cfg_t;
     
-    
+/* Data Samples Packet */    
 #define AFE_PORT_DATA_PKT_LEN           9
 #define AFE_PORT_DATA_PKT_ID		((uint8_t)'D')
 
 typedef struct __attribute__((packed)) {
     /* Packet ID */
-    uint8_t id;
+    const uint8_t id;
     /* Payload */
     int32_t sample_ch1;
     int32_t sample_ch2;   
-}afe_port_data_t;
+}afe_port_32bit_data_t;
+
+typedef struct __attribute__((packed)) {
+    /* Packet ID */
+    const uint8_t id;
+    /* Payload */
+    int16_t sample_ch1;
+    int16_t sample_ch2;   
+}afe_port_16bit_data_t;
     
 /*==================[TYPEDEF]================================================*/
 

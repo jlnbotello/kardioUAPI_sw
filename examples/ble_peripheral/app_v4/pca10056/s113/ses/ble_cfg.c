@@ -293,7 +293,7 @@ static void gap_params_init(void)
 }  
 
 /*==================[EXTERNAL FUNCTIONS DEFINITION]==========================*/
-void BleCfg_Init(TPCfg_RxEvent_t *p_rx_event){
+void BleCfg_Init(TpCfg_RxEvent_t *p_rx_event){
   ble_stack_init(); 
   gap_params_init();
   gatt_init();

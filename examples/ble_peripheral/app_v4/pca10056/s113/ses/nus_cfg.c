@@ -6,7 +6,7 @@
 
 /*==================[INTERNAL DATA DEFINITION]===============================*/
 BLE_NUS_DEF(m_nus, NRF_SDH_BLE_TOTAL_LINK_COUNT); /**< BLE NUS service instance. */
-static TPCfg_RxEvent_t *p_tp_cfg_rx_event;
+static TpCfg_RxEvent_t *p_tp_cfg_rx_event;
 
 /*==================[INTERNAL FUNCTIONS DEFINITION]==========================*/
 /**@brief Function for handling the data from the Nordic UART Service.
@@ -27,13 +27,13 @@ static void nus_data_handler(ble_nus_evt_t *p_evt) {
         /* Copy received data from nus in TP buffer */
         TP_BufferizeRx(p_tp_cfg_rx_event->tpi, p_evt->params.rx_data.p_data, p_evt->params.rx_data.length);
         /* Schedule the TP Rx Handler. Will run on main loop */
-        err_code = app_sched_event_put(p_tp_cfg_rx_event, sizeof(TPCfg_RxEvent_t), TpCfg_RxSchedHandler);
+        err_code = app_sched_event_put(p_tp_cfg_rx_event, sizeof(TpCfg_RxEvent_t), TpCfg_RxSchedHandler);
         APP_ERROR_CHECK(err_code);
     }
 }
 
 /*==================[EXTERNAL FUNCTIONS DEFINITION]==========================*/
-void NusCfg_Init(TPCfg_RxEvent_t *p_event) {
+void NusCfg_Init(TpCfg_RxEvent_t *p_event) {
     uint32_t err_code;
     ble_nus_init_t nus_init;
 

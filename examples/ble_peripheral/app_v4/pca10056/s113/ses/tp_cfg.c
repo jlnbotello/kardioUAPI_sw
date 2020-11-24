@@ -35,7 +35,7 @@ static TP_Instance_t tpi = {
 
 };
 
-static TPCfg_RxEvent_t rx_event = {
+static TpCfg_RxEvent_t rx_event = {
     .tpi = &tpi,
     .rx_handler = TP_RxHandler
 };
@@ -69,11 +69,11 @@ static void tp_onTx(TP_RetVal_t ret){
 /*==================[EXTERNAL FUNCTIONS DEFINITION]==========================*/
 
 void TpCfg_RxSchedHandler(void *p_event, uint16_t event_size) {
-    TPCfg_RxEvent_t *const p_ev = (TPCfg_RxEvent_t *) p_event;
+    TpCfg_RxEvent_t *const p_ev = (TpCfg_RxEvent_t *) p_event;
     p_ev->rx_handler(p_ev->tpi);
 }
 
-void TPCfg_Init(ble_nus_t *p_nus_, uint16_t *p_conn_handle_, AP_Instance_t * p_api_) {
+void TpCfg_Init(ble_nus_t *p_nus_, uint16_t *p_conn_handle_, AP_Instance_t * p_api_) {
     ASSERT(p_nus_ != NULL);
     ASSERT(p_conn_handle_ != NULL);
     ASSERT(p_api_ != NULL);
@@ -83,11 +83,11 @@ void TPCfg_Init(ble_nus_t *p_nus_, uint16_t *p_conn_handle_, AP_Instance_t * p_a
     TP_Init(&tpi);
 }
 
-TP_Instance_t * TPCfg_GetInstance(){
+TP_Instance_t * TpCfg_GetInstance(){
     return &tpi;
 }
 
-TPCfg_RxEvent_t * TPCfg_GetRxEventHandle(){
+TpCfg_RxEvent_t * TpCfg_GetRxEventHandle(){
     return &rx_event;
 }
 
