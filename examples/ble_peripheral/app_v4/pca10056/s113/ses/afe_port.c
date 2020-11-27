@@ -104,8 +104,8 @@ void AfePort_Init(AP_Instance_t * ap_instance){
     ASSERT(true == AP_AddCallbacks(api, afe_port_cbs));
 }
 
-#define CONV_INT24_TO_INT32(x)     ((int32_t)(x[2]<<16)+(x[1]<<8)+(x[0]))
-#define CONV_INT24_TO_INT16(x)     ((int16_t)(x[1]<<8)+(x[0]))
+#define CONV_INT24_TO_INT32(x)     ((int32_t)(x[0]<<16)+(x[1]<<8)+(x[2]))
+#define CONV_INT24_TO_INT16(x)     ((int16_t)(x[0]<<8)+(x[1]))
 
 void AFEPort_AFEDataHandler(){
     ADS1292R_SpiPacket_t const * const p_afe_pkt = ADS1292R_GetPacketHandle();

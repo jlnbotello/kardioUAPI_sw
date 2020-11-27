@@ -220,13 +220,13 @@ ADS1292R_RetCode_t ADS1292R_Init(ADS1292R_NewDataCallback_t cb) {
   nrf_delay_ms(1);
   spi_transfer_byte(ADS1292R_CMD_STOP); //Stop
   nrf_delay_ms(1);
-  write_reg(ADS1292R_REG_CONFIG2, 0xA3);
+  write_reg(ADS1292R_REG_CONFIG2, 0xA0); //internal ref 
   nrf_delay_ms(1);
-  write_reg(ADS1292R_REG_CONFIG1, 0x00);
+  write_reg(ADS1292R_REG_CONFIG1, 0x00); //125ksps
   nrf_delay_ms(1);
-  write_reg(ADS1292R_REG_CH1SET, 0x05);
+  write_reg(ADS1292R_REG_CH1SET, 0x00); //default input, gain=6
   nrf_delay_ms(1);
-  write_reg(ADS1292R_REG_CH2SET, 0x00);
+  write_reg(ADS1292R_REG_CH2SET, 0x00); //default input, gain=6
   nrf_delay_ms(1);
   uint8_t rx;
   /* echo
