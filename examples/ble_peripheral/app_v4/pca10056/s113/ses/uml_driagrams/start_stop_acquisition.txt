@@ -1,0 +1,34 @@
+'Generated with http://www.plantuml.com/'
+@startuml
+title Sequence diagram: Start/Stop acquisition
+
+group Interrupt Context
+BLE ->> NUS ++: OnRx()
+NUS-> TP ++: BufferizeRx()
+return
+NUS-> SCHED++: PutNusRxEvent()
+return
+return
+end
+
+group Main Context
+SCHED -> SCHED ++: ProcessEvents()
+note right: On each main loop execution,\n after waking up from an interrupt
+SCHED -> SCHED ++: NusRxEventHandler()
+SCHED -> TP ++: TpRxHandler()
+TP -> AP ++: ApRxHandler(AP Packet)
+AP -> AP: FindPortCallback()
+AP -> AFE_PORT ++: ExecutePortCallback()
+AFE_PORT -> AFE_PORT: Analyze(AFE Command Packet)
+AFE_PORT -> AFE ++: ExecuteAction()
+note right: e.g. start/stop
+return
+return
+return
+return
+deactivate SCHED
+deactivate SCHED
+
+end
+
+@enduml

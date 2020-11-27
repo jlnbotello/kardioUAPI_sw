@@ -1,0 +1,48 @@
+'Generated with https://www.planttext.com/'
+@startuml
+title Sequence diagram: Sample acquisition and transmmision
+group Interrupt Context
+AFE -> AFE_DRV: OnDataReady()
+activate AFE_DRV
+AFE_DRV -> SPI: GetData()
+activate SPI
+SPI --> AFE_DRV: [data]
+deactivate SPI
+AFE_DRV -> AFE_DRV: LockBuffer()
+AFE_DRV ->> SCHED++: PutNewDataEvent()
+return
+return
+end
+group Main Context
+SCHED -> SCHED: ProcessEvents()
+activate SCHED
+SCHED -> SCHED ++: NewDataEventHandler()
+SCHED -> AFE_PORT: AfeDataHandler()
+activate AFE_PORT
+AFE_PORT -> AFE_PORT: CreateAfePacket()
+AFE_PORT -> AP: SendPacket(AFE Packet)
+deactivate AFE_PORT
+activate AP
+AP->> TP: EnqueuePacket( AP Packet)
+deactivate AP
+deactivate SCHED
+alt TP packet not empty
+TP-> NUS: SendPacket(TP Packet)
+note left: On each main loop execution,\n after waking up from an interrupt
+activate NUS
+NUS-> TP: OnTx()
+deactivate NUS
+activate TP
+TP-> AP: OnTx()
+deactivate TP
+activate AP
+AP-> AFE_PORT: OnTx()
+deactivate AP
+activate AFE_PORT
+AFE_PORT -> AFE_DRV: ReleaseBuffer()
+deactivate AFE_PORT
+deactivate SCHED
+end
+end
+
+@enduml
