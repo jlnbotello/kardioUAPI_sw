@@ -3,6 +3,10 @@
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
   <BreakpointListItem trigger="" line="14" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="led_port.h" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="39" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="53" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="56" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
+  <BreakpointListItem trigger="" line="76" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="main.c" useHWbreakpoint="false"/>
   <BreakpointListItem trigger="" line="95" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="3" filename="transport_protocol.c" useHWbreakpoint="false"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -31,10 +35,7 @@
   <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;Application;Drivers"/>
   <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;Application;Ports"/>
   <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;Board Definition"/>
-  <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;Board Support"/>
-  <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;nRF_Drivers"/>
   <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;nRF_Libraries"/>
-  <ProjectSessionItem path="ble_app_uart_pca10056_s113;ble_app_uart_pca10056_s113;nRF_Log"/>
   <SourceCodeControlLogin password="F9BB6682F5D56822" user="Julian Botello &lt;jlnbotello@gmail.com>"/>
  </Project>
  <Register1>
@@ -70,13 +71,22 @@
  <Files>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="33" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="afe_port_defs.h" selected="0" top="18" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="18" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="afe_port.h" selected="0" top="0" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="56" y="107" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="afe_port.c" selected="0" top="89" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="37" y="228" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="ads1292r.c" selected="1" top="208" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="8" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="nus_cfg.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="78" y="110" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="afe_port.c" selected="1" top="92" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="228" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="ads1292r.c" selected="0" top="261" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="27" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="nus_cfg.c" selected="0" top="6" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="14" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/ble_peripheral/app_v4/pca10056/s113/ses/nus_cfg.c" useBinaryEdit="0" left="0" path="tp_cfg.h" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="20" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="afe_cfg.h" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="9" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="afe_cfg.c" selected="0" top="12" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="36" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="main.c" selected="0" top="42" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="55" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="main.c" selected="0" top="36" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="27" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/ble_peripheral/app_v4/pca10056/s113/ses/main.c" useBinaryEdit="0" left="0" path="ads1292r.h" selected="0" top="16" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="58" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="tp_cfg.c" selected="0" top="42" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="76" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/ble_peripheral/app_v4/pca10056/s113/ses/tp_cfg.c" useBinaryEdit="0" left="0" path="application_protocol.c" selected="0" top="63" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="151" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/ble_peripheral/app_v4/pca10056/s113/ses/ads1292r.h" useBinaryEdit="0" left="0" path="kardioUAPI_v1_0.h" selected="0" top="144" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="92" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/ble_peripheral/app_v4/pca10056/s113/ses/main.c" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/button/app_button.h" selected="0" top="90" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="94" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/components/libraries/button/app_button.h" useBinaryEdit="0" left="0" path="../../../../../../modules/nrfx/hal/nrf_gpio.h" selected="0" top="81" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="145" useTextEdit="1" openedFrom="C:/Repos/kardioUAPI_sw/examples/ble_peripheral/app_v4/pca10056/s113/ses/main.c" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/util/nordic_common.h" selected="0" top="129" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="99" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/util/app_error_weak.c" selected="0" top="84" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="307" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../../../../components/libraries/button/app_button.c" selected="0" top="176" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditRight" x="0" y="17" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="16" path="led_port_defs.h" selected="0" top="17" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditRight" x="0" y="15" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="led_port.h" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditRight" x="0" y="145" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="led_port.c" selected="0" top="138" codecName="Default"/>
